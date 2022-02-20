@@ -15,7 +15,7 @@ def color_mapper(x=None, Min=None, Max=None, cmap=None, rcmap=None):
 
 colormaps = {'PiYG', 'PRGn', 'BrBG', 'PuOr', 'RdGy', 'RdBu', 'RdYlBu',
                       'RdYlGn', 'Spectral', 'coolwarm', 'bwr', 'seismic'}
-gpdf = gpd.read_file("regions-covid-all-meth1.geojson")
+gpdf = gpd.read_file("geodata/regions-covid-all-meth1.geojson")
 mapbox_dark = 'mapbox://styles/snat/ckzpwerds000a14ma6l76yecv'
 mapbox_chill = 'mapbox://styles/snat/ckovh4n3t0bkh18t3kr3o2854'
 mapbox_pink = 'mapbox://styles/snat/ckovhievq107c18moysya7axu'

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import pydeck as pdk
 
-postes = pd.read_excel("agences-de-pm-avec-coordonnes-spatiales.xls")
+postes = pd.read_excel("geodata/agences-de-pm-avec-coordonnes-spatiales.xls")
 postes.columns = postes.columns.tolist()[:-2] + ["longitude", "latitude"]
 
 mapbox_dark = 'mapbox://styles/snat/ckzpwerds000a14ma6l76yecv'
