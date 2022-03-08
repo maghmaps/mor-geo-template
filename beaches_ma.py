@@ -148,3 +148,4 @@ def app():
              ),
          ],
      ))
+    st.markdown("Reference data from https://labo.environnement.gov.ma/plages-api", unsafe_allow_html=True)
