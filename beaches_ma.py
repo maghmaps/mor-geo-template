@@ -43,7 +43,7 @@ def app():
     df = gpd.read_file("geodata/beaches_ma.geojson")# source view-source:https://labo.environnement.gov.ma/plages-api
     st.markdown(header_html, unsafe_allow_html=True)
     
-    colstyle1, colstyle2 = st.columns([1,3])
+    colstyle1, colstyle2 = st.columns([1,8])
     with colstyle1:
         h = st.color_picker('Pick A Color', '#DA8C58').lstrip('#')
         color = list(int(h[i:i+2], 16) for i in (0, 2, 4))
@@ -107,7 +107,7 @@ def app():
             df= df[df["pavillonBleu"]==True]
             tooltip["html"] = tooltip["html"] + add_img_to_tooltip(img_pavillon)
     with col0:
-        bad_water = st.checkbox("Bad water", key=st.image(Image.open(img_bad_water), width=30))
+        bad_water = st.checkbox("Low quality water", key=st.image(Image.open(img_bad_water), width=30))
         if bad_water:
             df= df[df["quality"]==-1]
             tooltip["html"] = tooltip["html"] + add_img_to_tooltip(img_bad_water)

@@ -45,7 +45,7 @@ def app():
          options=styles)
         
     option = st.selectbox(
-         '',
+         'Road type',
          road_types)
     
     if option=="railways":
@@ -101,3 +101,4 @@ def app():
                  width_scale=20
              ),],
      ))
+    st.markdown("Reference data from http://geossc.ma/", unsafe_allow_html=True)

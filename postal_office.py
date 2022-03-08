@@ -13,13 +13,16 @@ mapbox_satel = "mapbox://styles/snat/ckztxcmz1004a14palj45lpte"
 
 def app():
     st.title('Postal offices in Morocco')
-    h = st.color_picker('Pick A Color', '#DA8C58').lstrip('#')
-    color = list(int(h[i:i+2], 16) for i in (0, 2, 4))
+    col1, col2 = st.columns([1,9])
+    with col1:
+        h = st.color_picker('Pick A Color', '#DA8C58').lstrip('#')
+        color = list(int(h[i:i+2], 16) for i in (0, 2, 4))
 
     styles = ('Street', 'Chill', 'Dark', 'Pink', 'Satellite')
-    style = st.select_slider(
-         'Map styles',
-         options=styles)
+    with col2:
+        style = st.select_slider(
+             'Map styles',
+             options=styles)
 
     if style=="Dark":
         map_style = mapbox_dark
@@ -57,3 +60,4 @@ def app():
              ),
          ],
      ))
+    st.markdown("Reference data from https://data.gov.ma/data/fr/group/cartographie", unsafe_allow_html=True)

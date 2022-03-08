@@ -25,31 +25,35 @@ styles = ('Street', 'Chill', 'Dark', 'Pink', 'Satellite')
 
 def app():
     st.title('Monthly Covid-19 deaths / cases in Morocco')
-    Type = st.select_slider(
-         'Choose',
-         options=('Cases', 'deaths'))
+    colsl1, colsl2 = st.columns([1,4])
+    with colsl1:
+        Type = st.select_slider(
+             'Cases | Deaths',
+             options=('Cases', 'deaths'))
 
     if Type=="deaths":
         colnames = [el for el in gpdf.columns if "deaths_" in el]
     elif Type=="Cases":
         colnames = [el for el in gpdf.columns if "cases_" in el]
-
-    colname = st.select_slider(
-         'Select a month year',
-         options=colnames)
-
-    style = st.select_slider(
-         'Map styles',
-         options=styles)
-
-    cmapoption = st.selectbox(
-         'colormaps',
-         colormaps)
-
-    rcmap = st.checkbox('Reverse cmap')
-
-    opacity = st.number_input('Color opacity',min_value=0.0, max_value=1.0, step=0.1, value=0.6)
-
+    with colsl2:
+        colname = st.select_slider(
+             'Year_month',
+             options=colnames)
+    
+    col1, col2, col3 = st.columns([1,1,4])
+    with col3:
+        style = st.select_slider(
+             'Map styles',
+             options=styles)
+    with col1:
+        cmapoption = st.selectbox(
+             'Colormaps',
+             colormaps)
+    with col2:
+        opacity = st.number_input('Color opacity',min_value=0.0, max_value=1.0, step=0.1, value=0.6)
+    
+    rcmap = st.checkbox('Reverse colormap')
+    
     if style=="Dark":
         map_style = mapbox_dark
     elif style=="Chill":
