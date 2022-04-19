@@ -4,3 +4,4 @@ xlrd==2.0.1
 matplotlib==3.5.1
 geopandas==0.10.2
 geofeather==0.3.0
+streamlit
